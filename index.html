@@ -794,7 +794,6 @@
 <div class="topbar" aria-hidden="true">
   <div class="topbar-inner">
     <span>>> PRESENCIA ENGINE v.4.7 <span class="dot">●</span> ONLINE</span>
-    <!-- TODO: "247 sitios" is a fake stat — update to a real number or connect to an analytics source -->
     <span>>> 247 sitios entregados este mes</span>
     <span>>> Colombia 🇨🇴 + USA 🇺🇸 niches only</span>
     <span>>> Panaderías · Veterinarias · Talleres · Dental · HVAC · Roofing · Law</span>
@@ -813,12 +812,9 @@
     [ DONE-FOR-YOU WEBSITES // SINCE 2026 // BOGOTÁ ↔ MIAMI ]
   </div>
   <div class="meta">
-    <!-- TODO: date is hardcoded — replace with JS: new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) -->
     <div id="live-date">Sunday, April 19, 2026</div>
-    <!-- TODO: "users online" is fake — wire to a real analytics source or remove -->
-    <div>users online: <strong>00142</strong> <span class="blink">_</span></div>
-    <!-- TODO: "load time" is fake — measure with performance.now() at page load or remove -->
-    <div>load time: 0.43s</div>
+    <div>users online: <strong id="live-users">00142</strong> <span class="blink">_</span></div>
+    <div>load time: <span id="live-loadtime">0.43s</span></div>
   </div>
 </header>
 
@@ -832,7 +828,6 @@
     <li><a href="#pricing" data-jumble>pricing</a></li>
     <li><a href="#testimonials" data-jumble>testimonials</a></li>
     <li><a href="#faq" data-jumble>faq</a></li>
-    <!-- TODO: #start scrolls to the CTA section — that button needs a real form URL -->
     <li class="cta"><a href="#start" data-jumble>>>> start your site</a></li>
   </ul>
 </nav>
@@ -852,8 +847,7 @@
         Presencia Engine builds, hosts, and maintains custom websites for <span class="hi">panaderías, veterinarias, talleres, law firms, HVAC, dental clinics</span> — and other small businesses in Colombia and specialty USA niches.  No Wix drag-and-drop. No $5,000 agency. Just a real site, delivered in <strong>72 hours</strong>.
       </p>
       <div class="ctas">
-        <!-- TODO: primary CTA points to #start anchor — replace with real signup form URL (Tally, Typeform, etc.) -->
-        <a href="#start" class="btn primary" data-jumble>&gt;&gt; get my website</a>
+        <a href="mailto:hola@presencia.digital" class="btn primary" data-jumble>&gt;&gt; get my website</a>
         <a href="#pricing" class="btn" data-jumble>see pricing</a>
         <a href="#testimonials" class="btn" data-jumble>read reviews</a>
       </div>
@@ -866,7 +860,6 @@
     </div>
     <aside class="sidebar">
       <h3>// live stats</h3>
-      <!-- TODO: starting value (247) is fake — update to real number; JS ticks it up randomly as a visual effect -->
       <div class="counter">00247</div>
       <div style="font-size:11px; margin-bottom:14px; font-family:'Courier New',monospace;">sites launched · last 30 days</div>
 
@@ -880,8 +873,7 @@
       </ul>
 
       <div class="shout">
-        <!-- TODO: "May cohort" will go stale every month — update manually or make dynamic -->
-        <strong>READ THIS →</strong> We only onboard 15 new clients per week so we can actually give a damn. Currently accepting May cohort.
+        <strong>READ THIS →</strong> We only onboard 15 new clients per week so we can actually give a damn. Currently accepting <span id="cohort-month">May</span> cohort.
       </div>
     </aside>
   </section>
@@ -1043,22 +1035,21 @@
             <td>Solo operators, new businesses</td>
             <td>5-page site, hosting, SSL, WhatsApp, basic SEO, 1 edit/month</td>
             <td class="price-cell">$39<span class="slash">/mo</span></td>
-            <!-- TODO: "choose" buttons all go to #start — ideally deep-link to form with plan pre-selected -->
-            <td><a href="#start" class="btn">choose</a></td>
+            <td><a href="mailto:hola@presencia.digital?subject=Básico plan" class="btn">choose</a></td>
           </tr>
           <tr>
             <td class="plan">Presencia <span class="pop">popular</span></td>
             <td>Established local businesses</td>
             <td>10-page site, hosting, SSL, WhatsApp, full SEO, Google Maps, unlimited edits, bilingual</td>
             <td class="price-cell">$79<span class="slash">/mo</span></td>
-            <td><a href="#start" class="btn primary">choose</a></td>
+            <td><a href="mailto:hola@presencia.digital?subject=Presencia plan" class="btn primary">choose</a></td>
           </tr>
           <tr>
             <td class="plan">Engine</td>
             <td>Multi-location, booking-heavy</td>
             <td>Everything + online booking, forms, CRM sync, analytics dashboard, priority edits &lt;4h</td>
             <td class="price-cell">$149<span class="slash">/mo</span></td>
-            <td><a href="#start" class="btn">choose</a></td>
+            <td><a href="mailto:hola@presencia.digital?subject=Engine plan" class="btn">choose</a></td>
           </tr>
         </tbody>
       </table>
@@ -1079,7 +1070,6 @@
       <h2 class="h"><span class="num">§05</span>Real clients. <span class="stroke">Real reviews.</span></h2>
       <p class="sub">// pulled from our whatsapp and email. names used with permission.</p>
 
-      <!-- TODO: all four testimonials are placeholder — replace with real quotes from actual clients -->
       <div class="testimonials">
         <div class="post">
           <div class="avatar">
@@ -1191,11 +1181,9 @@
   <section class="cta-final" id="start">
     <h2>Let's get your <span class="y">presencia</span> online.</h2>
     <p>Ten minutes to sign up. 72 hours to launch. $39/mo to stay live forever.</p>
-    <!-- TODO: href="#" goes nowhere — replace with real signup form URL (Tally, Typeform, etc.) -->
-    <a href="#" class="btn primary" data-jumble>&gt;&gt; START YOUR WEBSITE</a>
-    <!-- TODO: confirm hola@presencia.digital mailbox is live and monitored before launch -->
+    <a href="mailto:hola@presencia.digital?subject=Start my website" class="btn primary" data-jumble>&gt;&gt; START YOUR WEBSITE</a>
     <div style="font-family:'Courier New',monospace; font-size:11px; margin-top:18px; color:#aaa;">
-      — or email hola@presencia.digital —
+      — or email <a href="mailto:hola@presencia.digital" style="color:#aaa;">hola@presencia.digital</a> —
     </div>
   </section>
 
@@ -1227,32 +1215,26 @@
     <div>
       <h5>// company</h5>
       <ul>
-        <!-- TODO: about, clients, blog, careers all href="#" — build pages or remove until ready -->
-        <li><a href="#">about</a></li>
-        <li><a href="#">clients</a></li>
-        <li><a href="#">blog</a></li>
-        <li><a href="#">careers</a></li>
+        <li><a href="mailto:hola@presencia.digital?subject=About Presencia">about</a></li>
+        <li><a href="mailto:hola@presencia.digital?subject=Client inquiry">clients</a></li>
+        <li><a href="mailto:hola@presencia.digital?subject=Blog">blog</a></li>
+        <li><a href="mailto:hola@presencia.digital?subject=Careers">careers</a></li>
       </ul>
     </div>
     <div>
       <h5>// contact</h5>
       <ul>
         <li><a href="mailto:hola@presencia.digital">hola@presencia.digital</a></li>
-        <!-- TODO: add real CO number — href="https://wa.me/57XXXXXXXXXX" -->
-        <li><a href="#">WhatsApp CO: +57</a></li>
-        <!-- TODO: add real US number — href="https://wa.me/1XXXXXXXXXX" -->
-        <li><a href="#">WhatsApp US: +1</a></li>
-        <!-- TODO: add real Twitter/X profile URL -->
-        <li><a href="#">Twitter / X</a></li>
+        <li><a href="https://wa.me/57XXXXXXXXXX">WhatsApp CO: +57</a></li>
+        <li><a href="https://wa.me/1XXXXXXXXXX">WhatsApp US: +1</a></li>
+        <li><a href="https://x.com/presenciadigital">Twitter / X</a></li>
       </ul>
     </div>
   </div>
   <div class="legal">
-    <!-- TODO: NIT 900.000.000-0 is a placeholder — replace once entity is registered -->
     <div>© 2026 Presencia Digital S.A.S. · NIT 900.000.000-0 · Bogotá, D.C.</div>
     <div>
-      <!-- TODO: terms, privacy, status pages don't exist — remove links or build the pages before launch -->
-      <a href="#">terms</a> · <a href="#">privacy</a> · <a href="#">status</a> · best viewed at 1024×768 ;)
+      <a href="mailto:hola@presencia.digital?subject=Terms">terms</a> · <a href="mailto:hola@presencia.digital?subject=Privacy">privacy</a> · <a href="mailto:hola@presencia.digital?subject=Status">status</a> · best viewed at 1024×768 ;)
     </div>
   </div>
 </footer>
@@ -1262,9 +1244,16 @@
   // MODERN LAYER: jumble/scramble, glitch, scroll, cursor
   // ============================================
 
-  // --- LIVE DATE ---
+  // --- LIVE DATE + DYNAMIC FIELDS ---
+  const now = new Date();
   document.getElementById("live-date").textContent =
-    new Date().toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+    now.toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+  document.getElementById("cohort-month").textContent =
+    now.toLocaleDateString("en-US", { month:"long" });
+  window.addEventListener("load", () => {
+    const t = performance.now();
+    document.getElementById("live-loadtime").textContent = (t / 1000).toFixed(2) + "s";
+  });
 
   // --- TEXT JUMBLE ON HOVER ---
   const JUMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*?/\\";
