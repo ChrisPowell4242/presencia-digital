@@ -317,8 +317,8 @@
   /* Rotating badge — modern layer */
   .hero .stamp {
     position: absolute;
-    top: -18px;
-    right: -18px;
+    top: 14px;
+    right: 12px;
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -708,15 +708,151 @@
     transition: transform 120ms linear;
   }
 
-  /* Cursor trail dot */
-  .trail {
-    position: fixed;
-    width: 8px; height: 8px;
+  /* Pricing cards (mobile) */
+  .price-cards { display: none; }
+  @media (max-width: 880px) {
+    table.price { display: none; }
+    .price-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 14px; }
+  }
+  .price-card {
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 18px;
+    position: relative;
+  }
+  .price-card.popular {
+    border-color: var(--accent);
+    box-shadow: 4px 4px 0 var(--accent);
+    background: #fffef5;
+  }
+  .price-card .card-badge {
+    position: absolute;
+    top: -11px; left: 14px;
     background: var(--accent);
+    color: #fff;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
     border: 1px solid var(--ink);
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%,-50%);
+  }
+  .price-card .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dashed var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .price-card .card-name {
+    font-family: "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+  .price-card .card-price {
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--ink);
+  }
+  .price-card .card-price .slash { font-size: 11px; color: #888; font-weight: normal; }
+  .price-card .card-for {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: #555;
+    margin: 0 0 10px;
+  }
+  .price-card .card-for::before { content: "BEST FOR — "; }
+  .price-card .card-feats {
+    list-style: none;
+    padding: 0; margin: 0 0 14px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .price-card .card-feats li {
+    font-size: 14px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .price-card .card-feats li::before {
+    content: "✓";
+    position: absolute; left: 0; top: 1px;
+    color: var(--accent);
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+  }
+  .price-card .card-cta {
+    display: block;
+    padding: 11px 12px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .price-card.popular .card-cta {
+    background: var(--accent);
+    color: #fff;
+  }
+  .price-card .card-foot {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    color: #888;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .guarantee-strip {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    border: 1px dashed var(--ink);
+    padding: 10px 12px;
+    background: #fffef0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+  .guarantee-strip b { font-family: "Courier New", monospace; }
+
+  /* WhatsApp hero chips */
+  .wa-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .wa-chip {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 9px 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--paper);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .wa-chip:hover { background: var(--paper-dark); }
+  .wa-chip .wa-num { color: var(--accent); font-weight: bold; }
+  .hero-seepricing {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    color: #555;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   /* ASCII divider */
@@ -847,11 +983,20 @@
         Presencia Engine builds, hosts, and maintains custom websites for <span class="hi">panaderías, veterinarias, talleres, law firms, HVAC, dental clinics</span> — and other small businesses in Colombia and specialty USA niches.  No Wix drag-and-drop. No $5,000 agency. Just a real site, delivered in <strong>72 hours</strong>.
       </p>
       <div class="ctas">
-        <a href="mailto:hola@presencia.digital" class="btn primary" data-jumble>&gt;&gt; get my website</a>
-        <a href="#pricing" class="btn" data-jumble>see pricing</a>
-        <a href="#testimonials" class="btn" data-jumble>read reviews</a>
+        <a href="mailto:hola@presencia.digital?subject=Start my website" class="btn primary" data-jumble>&gt;&gt; get my website</a>
       </div>
-      <div class="fineprint">
+      <div class="wa-chips">
+        <a href="https://wa.me/57XXXXXXXXXX" class="wa-chip"><!-- TODO: replace with real CO WhatsApp number -->
+          <span>🇨🇴 WhatsApp Colombia</span>
+          <span class="wa-num">+57 (xxx) xxx-xxxx</span>
+        </a>
+        <a href="https://wa.me/1XXXXXXXXXX" class="wa-chip"><!-- TODO: replace with real US WhatsApp number -->
+          <span>🇺🇸 WhatsApp USA</span>
+          <span class="wa-num">+1 (xxx) xxx-xxxx</span>
+        </a>
+      </div>
+      <a href="#pricing" class="hero-seepricing">→ see pricing</a>
+      <div class="fineprint" style="margin-top:10px;">
         ✱ no contracts · cancel anytime · hosted on our infra · google-indexed in &lt;24h
       </div>
       <div class="stamp">
@@ -894,32 +1039,32 @@
       <div class="features">
         <div class="feat">
           <span class="icn">[ 01 ]</span>
-          <h3 class="glitch" data-text="Custom built">Custom built</h3>
+          <h3>Custom built</h3>
           <p>Every site is hand-designed for your specific niche. Your panadería won't look like a lawyer's office.</p>
         </div>
         <div class="feat">
           <span class="icn">[ 02 ]</span>
-          <h3 class="glitch" data-text="72-hour launch">72-hour launch</h3>
+          <h3>72-hour launch</h3>
           <p>From signup to live URL in three days. We've obsessively tuned our stack for this single number.</p>
         </div>
         <div class="feat">
           <span class="icn">[ 03 ]</span>
-          <h3 class="glitch" data-text="SEO + Maps">SEO + Maps</h3>
+          <h3>SEO + Maps</h3>
           <p>Google Business Profile, structured data, local SEO, schema markup. Indexed before day two.</p>
         </div>
         <div class="feat">
           <span class="icn">[ 04 ]</span>
-          <h3 class="glitch" data-text="WhatsApp ready">WhatsApp ready</h3>
+          <h3>WhatsApp ready</h3>
           <p>One-tap WhatsApp buttons, click-to-call, directions. Built for how your customers actually reach you.</p>
         </div>
         <div class="feat">
           <span class="icn">[ 05 ]</span>
-          <h3 class="glitch" data-text="Edits forever">Edits forever</h3>
+          <h3>Edits forever</h3>
           <p>Text us the change, we push it live. No CMS to learn. No passwords to lose. No "content manager."</p>
         </div>
         <div class="feat">
           <span class="icn">[ 06 ]</span>
-          <h3 class="glitch" data-text="ES + EN ready">ES + EN ready</h3>
+          <h3>ES + EN ready</h3>
           <p>Full bilingual support out of the box. Serve both your Colombian clients and US-based customers.</p>
         </div>
       </div>
@@ -1054,6 +1199,64 @@
         </tbody>
       </table>
 
+      <!-- Mobile pricing cards (shown below 880px, table hidden) -->
+      <div class="price-cards">
+        <div class="price-card">
+          <div class="card-head">
+            <span class="card-name">Básico</span>
+            <span class="card-price">$39<span class="slash">/mo</span></span>
+          </div>
+          <p class="card-for">Solo operators, new businesses</p>
+          <ul class="card-feats">
+            <li>5-page custom site</li>
+            <li>Hosting + SSL included</li>
+            <li>WhatsApp integration</li>
+            <li>Basic SEO setup</li>
+            <li>1 edit/month</li>
+          </ul>
+          <a href="mailto:hola@presencia.digital?subject=Básico plan" class="card-cta">&gt;&gt; choose básico</a>
+        </div>
+
+        <div class="price-card popular">
+          <div class="card-badge">★ most popular</div>
+          <div class="card-head">
+            <span class="card-name">Presencia</span>
+            <span class="card-price">$79<span class="slash">/mo</span></span>
+          </div>
+          <p class="card-for">Established local businesses</p>
+          <ul class="card-feats">
+            <li>10-page custom site</li>
+            <li>Hosting + SSL included</li>
+            <li>WhatsApp integration</li>
+            <li>Full SEO + Google Maps</li>
+            <li>Unlimited edits</li>
+            <li>Bilingual (ES + EN)</li>
+          </ul>
+          <a href="mailto:hola@presencia.digital?subject=Presencia plan" class="card-cta">&gt;&gt; choose presencia</a>
+        </div>
+
+        <div class="price-card">
+          <div class="card-head">
+            <span class="card-name">Engine</span>
+            <span class="card-price">$149<span class="slash">/mo</span></span>
+          </div>
+          <p class="card-for">Multi-location, booking-heavy</p>
+          <ul class="card-feats">
+            <li>Everything in Presencia</li>
+            <li>Online booking + forms</li>
+            <li>CRM sync</li>
+            <li>Analytics dashboard</li>
+            <li>Priority edits &lt;4h</li>
+          </ul>
+          <a href="mailto:hola@presencia.digital?subject=Engine plan" class="card-cta">&gt;&gt; choose engine</a>
+        </div>
+      </div>
+
+      <div class="guarantee-strip">
+        <span>🛡</span>
+        <div><b>14-day money-back guarantee.</b> If we don't deliver what we promised, full refund — no questions, no phone tree.</div>
+      </div>
+
       <p style="font-size:12px; margin-top:14px; font-family:'Courier New',monospace; color:#555;">
         → one-time setup included in first month. no contracts, cancel with one email. we keep your content exportable.
       </p>
@@ -1073,22 +1276,6 @@
       <div class="testimonials">
         <div class="post">
           <div class="avatar">
-            <div class="pic">MR</div>
-            <div><strong>María R.</strong></div>
-            <div class="rank">★ cliente</div>
-            <div>Medellín, CO</div>
-          </div>
-          <div class="content">
-            <div class="time">Posted: 2026-03-14 · Re: ¿vale la pena?</div>
-            <blockquote>
-              "Tenía mi panadería por 12 años sin página web. En 3 días ya aparecía en Google Maps con fotos de verdad. El primer mes me llegaron 4 pedidos de catering nuevos solo del sitio. Se pagó solo."
-            </blockquote>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="avatar">
             <div class="pic">JT</div>
             <div><strong>James T.</strong></div>
             <div class="rank">★ cliente</div>
@@ -1105,6 +1292,38 @@
 
         <div class="post">
           <div class="avatar">
+            <div class="pic">MR</div>
+            <div><strong>María R.</strong></div>
+            <div class="rank">★ cliente</div>
+            <div>Medellín, CO</div>
+          </div>
+          <div class="content">
+            <div class="time">Posted: 2026-03-14 · Re: ¿vale la pena?</div>
+            <blockquote>
+              "Tenía mi panadería por 12 años sin página web. En 3 días ya aparecía en Google Maps con fotos de verdad. El primer mes me llegaron 4 pedidos de catering nuevos solo del sitio. Se pagó solo."
+            </blockquote>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="avatar">
+            <div class="pic">SK</div>
+            <div><strong>Sarah K.</strong></div>
+            <div class="rank">★ cliente</div>
+            <div>Austin, TX</div>
+          </div>
+          <div class="content">
+            <div class="time">Posted: 2026-03-31 · Re: café website</div>
+            <blockquote>
+              "The old site was a Squarespace template my niece made. New site looks like a real coffee shop and loads in a blink. Mobile orders went up ~30% the first month. Worth every cent."
+            </blockquote>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="avatar">
             <div class="pic">CV</div>
             <div><strong>Clínica V.</strong></div>
             <div class="rank">★ cliente</div>
@@ -1114,22 +1333,6 @@
             <div class="time">Posted: 2026-03-22 · Re: veterinaria</div>
             <blockquote>
               "Lo mejor es que cuando necesito un cambio, mando el WhatsApp y en horas está listo. Nada de plataformas raras. Simplemente funciona."
-            </blockquote>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="avatar">
-            <div class="pic">DK</div>
-            <div><strong>Dr. K.</strong></div>
-            <div class="rank">★ cliente</div>
-            <div>Austin, TX</div>
-          </div>
-          <div class="content">
-            <div class="time">Posted: 2026-01-19 · Re: dental practice</div>
-            <blockquote>
-              "I was quoted $6,000 + $200/mo by an agency for basically this. I pay $79. Site looks better than most practices in town. Booked solid two weeks out."
             </blockquote>
             <div class="stars">★★★★★</div>
           </div>
@@ -1338,35 +1541,6 @@
     }
   }, { passive: true });
 
-  // --- CURSOR TRAIL ---
-  const TRAIL_LEN = 7;
-  const trails = [];
-  for (let i = 0; i < TRAIL_LEN; i++) {
-    const d = document.createElement("div");
-    d.className = "trail";
-    d.style.opacity = String(1 - i / TRAIL_LEN);
-    d.style.width = d.style.height = (8 - i * 0.7) + "px";
-    document.body.appendChild(d);
-    trails.push({ el: d, x: 0, y: 0 });
-  }
-  let mx = -100, my = -100;
-  window.addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
-  // Hide trail on touch devices
-  if (matchMedia("(hover: none)").matches) {
-    trails.forEach(t => t.el.style.display = "none");
-  }
-  function animateTrail() {
-    let x = mx, y = my;
-    trails.forEach(t => {
-      t.x += (x - t.x) * 0.35;
-      t.y += (y - t.y) * 0.35;
-      t.el.style.left = t.x + "px";
-      t.el.style.top = t.y + "px";
-      x = t.x; y = t.y;
-    });
-    requestAnimationFrame(animateTrail);
-  }
-  requestAnimationFrame(animateTrail);
 
   // --- LIVE CLOCK-ISH COUNTER (just a small 2001 touch) ---
   // nothing fancy — the blink is CSS. but let's slightly tick the sidebar counter.
@@ -1382,16 +1556,6 @@
     }, 6000);
   }
 
-  // --- OCCASIONAL GLITCH FLASH on logo (intentional feel) ---
-  const logo = document.querySelector(".masthead .logo");
-  if (logo) {
-    setInterval(() => {
-      if (Math.random() < 0.4) {
-        logo.style.transform = `translate(${(Math.random()-0.5)*3}px, ${(Math.random()-0.5)*2}px) skewX(${(Math.random()-0.5)*2}deg)`;
-        setTimeout(() => { logo.style.transform = ""; }, 90);
-      }
-    }, 3800);
-  }
 </script>
 
 </body>
